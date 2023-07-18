@@ -14,7 +14,7 @@ import UIKit
 
 // view to interactor
 protocol UserBusinessLogic {
-  func getUsers(request: User.Something.Request)
+    func viewDidLoad()
 }
 
 protocol UserDataStore {
@@ -27,11 +27,11 @@ class UserInteractor: UserDataStore {
 }
 
 extension UserInteractor: UserBusinessLogic {
-    func getUsers(request: User.Something.Request) {
+    func viewDidLoad() {
         worker = UserWorker()
         worker?.doSomeWork()
         
-        let response = User.Something.Response()
+        let response = User.Fetch.Response()
         presenter?.presentSomething(response: response)
       }
 }

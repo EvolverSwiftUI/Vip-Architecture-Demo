@@ -15,7 +15,7 @@ import UIKit
 enum User {
   // MARK: Use cases
   
-  enum Something {
+  enum Fetch {
     struct Request {
     }
     struct Response {

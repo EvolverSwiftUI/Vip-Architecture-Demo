@@ -14,7 +14,7 @@ import UIKit
 
 // presentor to view
 protocol UserDisplayLogic: AnyObject {
-  func displaySomething(viewModel: User.Something.ViewModel)
+  func displaySomething(viewModel: User.Fetch.ViewModel)
 }
 
 class UserViewController: UIViewController {
@@ -59,19 +59,12 @@ class UserViewController: UIViewController {
   // MARK: - View lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: - Do something
-  //@IBOutlet weak var nameTextField: UITextField!
-  func doSomething() {
-    let request = User.Something.Request()
-    interactor?.doSomething(request: request)
+      interactor?.viewDidLoad()
   }
 }
 
 extension UserViewController: UserDisplayLogic {
-    func displaySomething(viewModel: User.Something.ViewModel) {
-      //nameTextField.text = viewModel.name
+    func displaySomething(viewModel: User.Fetch.ViewModel) {
+        
     }
 }

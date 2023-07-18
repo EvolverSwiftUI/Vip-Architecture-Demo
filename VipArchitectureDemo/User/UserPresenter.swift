@@ -13,14 +13,14 @@
 import UIKit
 
 protocol UserPresentationLogic {
-  func presentSomething(response: User.Something.Response)
+  func presentSomething(response: User.Fetch.Response)
 }
 
 class UserPresenter: UserPresentationLogic {
   weak var viewController: UserDisplayLogic?
   
-  func presentSomething(response: User.Something.Response) {
-    let viewModel = User.Something.ViewModel()
+  func presentSomething(response: User.Fetch.Response) {
+    let viewModel = User.Fetch.ViewModel()
     viewController?.displaySomething(viewModel: viewModel)
   }
 }
