@@ -13,15 +13,12 @@
 import UIKit
 
 enum User {
-    // MARK: Use cases
-    
+    // MARK: Fetch
     enum Fetch {
-        struct Request
-        {
+        struct Request {
         }
         
-        struct Response
-        {
+        struct Response {
             let users: [UserModel]?
             let error: Error?
             
@@ -31,25 +28,15 @@ enum User {
             }
         }
         
-        struct ViewModel
-        {
-            var users: [UserViewModel]? = []
-            
-            init(users: [UserModel]? = nil) {
-                guard let list = users else { return }
-                
-                for user in list {
-                    let model = UserViewModel(name: user.name ?? "", website: user.website ?? "")
-                    self.users?.append(model)
-                }
-            }
+        struct ViewModel {
+            var users: [UserViewModel]
         }
     }
 }
 
 struct UserViewModel {
-    let name: String
-    let website: String
+    let name: String?
+    let website: String?
 }
 
 struct UserModel: Decodable {

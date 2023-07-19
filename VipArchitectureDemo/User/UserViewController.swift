@@ -118,8 +118,7 @@ extension UserViewController: UITableViewDelegate {
 // MARK: - UserDisplayLogic (Presentor to View)
 extension UserViewController: UserDisplayLogic {
     func reloadTableViewData(with userViewModel: User.Fetch.ViewModel) {
-        self.users = userViewModel.users ?? []
-        print(self.users)
+        self.users = userViewModel.users
         self.tableView.reloadData()
     }
 

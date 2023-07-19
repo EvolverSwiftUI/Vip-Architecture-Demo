@@ -21,14 +21,16 @@ protocol UserPresentationLogic {
 }
 
 class UserPresenter {
+    // MARK: - Public
     weak var viewController: UserDisplayLogic?
 }
 
 
+// MARK: - Public
 extension UserPresenter: UserPresentationLogic {
     func showUsers(with response: User.Fetch.Response) {
-        let viewModel = User.Fetch.ViewModel(users: response.users)
-        viewController?.reloadTableViewData(with: viewModel)
+        let viewModels = buildUserViewModel(users: response.users)
+        viewController?.reloadTableViewData(with: User.Fetch.ViewModel(users: viewModels))
     }
     
     func showError(_ error: Error) {
@@ -41,5 +43,13 @@ extension UserPresenter: UserPresentationLogic {
     
     func hideLoader() {
         viewController?.hideLoader()
+    }
+}
+
+// MARK: - Private
+private extension UserPresenter {
+    func buildUserViewModel(users: [UserModel]?) -> [UserViewModel] {
+        guard let users = users  else { return [] }
+        return users.map { UserViewModel(name: $0.name, website: $0.website) }
     }
 }
