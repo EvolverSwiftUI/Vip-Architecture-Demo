@@ -13,14 +13,141 @@
 import UIKit
 
 enum User {
-  // MARK: Use cases
-  
-  enum Fetch {
-    struct Request {
+    // MARK: Use cases
+    
+    enum Fetch {
+        struct Request
+        {
+        }
+        
+        struct Response
+        {
+            let users: [UserModel]?
+            let error: Error?
+            
+            init(users: [UserModel]? = nil, error: Error? = nil) {
+                self.users = users
+                self.error = error
+            }
+        }
+        
+        struct ViewModel
+        {
+            var users: [UserViewModel]? = []
+            
+            init(users: [UserModel]? = nil) {
+                guard let list = users else { return }
+                
+                for user in list {
+                    let model = UserViewModel(name: user.name ?? "", website: user.website ?? "")
+                    self.users?.append(model)
+                }
+            }
+        }
     }
-    struct Response {
+}
+
+struct UserViewModel {
+    let name: String
+    let website: String
+}
+
+struct UserModel: Decodable {
+    let id : Int?
+    let name : String?
+    let username : String?
+    let email : String?
+    let address : Address?
+    let phone : String?
+    let website : String?
+    let company : Company?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case id = "id"
+        case name = "name"
+        case username = "username"
+        case email = "email"
+        case address = "address"
+        case phone = "phone"
+        case website = "website"
+        case company = "company"
     }
-    struct ViewModel {
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
+        username = try values.decodeIfPresent(String.self, forKey: .username)
+        email = try values.decodeIfPresent(String.self, forKey: .email)
+        address = try values.decodeIfPresent(Address.self, forKey: .address)
+        phone = try values.decodeIfPresent(String.self, forKey: .phone)
+        website = try values.decodeIfPresent(String.self, forKey: .website)
+        company = try values.decodeIfPresent(Company.self, forKey: .company)
     }
-  }
+}
+
+struct Address: Decodable {
+    let street: String?
+    let suite: String?
+    let city: String?
+    let zipcode: String?
+    let geo: Geo?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case street = "street"
+        case suite = "suite"
+        case city = "city"
+        case zipcode = "zipcode"
+        case geo = "geo"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        street = try values.decodeIfPresent(String.self, forKey: .street)
+        suite = try values.decodeIfPresent(String.self, forKey: .suite)
+        city = try values.decodeIfPresent(String.self, forKey: .city)
+        zipcode = try values.decodeIfPresent(String.self, forKey: .zipcode)
+        geo = try values.decodeIfPresent(Geo.self, forKey: .geo)
+    }
+}
+
+
+struct Company : Decodable {
+    let name: String?
+    let catchPhrase: String?
+    let bs: String?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case name = "name"
+        case catchPhrase = "catchPhrase"
+        case bs = "bs"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
+        catchPhrase = try values.decodeIfPresent(String.self, forKey: .catchPhrase)
+        bs = try values.decodeIfPresent(String.self, forKey: .bs)
+    }
+}
+
+
+struct Geo: Decodable {
+    let lat: String?
+    let lng: String?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case lat = "lat"
+        case lng = "lng"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        lat = try values.decodeIfPresent(String.self, forKey: .lat)
+        lng = try values.decodeIfPresent(String.self, forKey: .lng)
+    }
 }

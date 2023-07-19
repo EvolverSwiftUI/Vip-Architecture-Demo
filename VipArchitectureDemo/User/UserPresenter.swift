@@ -12,15 +12,34 @@
 
 import UIKit
 
+// interactor to presentor
 protocol UserPresentationLogic {
-  func presentSomething(response: User.Fetch.Response)
+    func showUsers(with response: User.Fetch.Response)
+    func showError(_ error: Error)
+    func showLoader()
+    func hideLoader()
 }
 
-class UserPresenter: UserPresentationLogic {
-  weak var viewController: UserDisplayLogic?
-  
-  func presentSomething(response: User.Fetch.Response) {
-    let viewModel = User.Fetch.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+class UserPresenter {
+    weak var viewController: UserDisplayLogic?
+}
+
+
+extension UserPresenter: UserPresentationLogic {
+    func showUsers(with response: User.Fetch.Response) {
+        let viewModel = User.Fetch.ViewModel(users: response.users)
+        viewController?.reloadTableViewData(with: viewModel)
+    }
+    
+    func showError(_ error: Error) {
+        viewController?.showError(error)
+    }
+    
+    func showLoader() {
+        viewController?.showLoader()
+    }
+    
+    func hideLoader() {
+        viewController?.hideLoader()
+    }
 }

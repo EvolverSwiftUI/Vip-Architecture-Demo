@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C770940D2A66D8800041106B /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77094072A66D8800041106B /* UserPresenter.swift */; };
-		C770940E2A66D8800041106B /* UserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77094082A66D8800041106B /* UserWorker.swift */; };
+		C770940E2A66D8800041106B /* UserNetworkingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77094082A66D8800041106B /* UserNetworkingWorker.swift */; };
 		C770940F2A66D8800041106B /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77094092A66D8800041106B /* UserRouter.swift */; };
 		C77094102A66D8800041106B /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C770940A2A66D8800041106B /* UserModels.swift */; };
 		C77094112A66D8800041106B /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C770940B2A66D8800041106B /* UserViewController.swift */; };
@@ -22,7 +22,7 @@
 
 /* Begin PBXFileReference section */
 		C77094072A66D8800041106B /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
-		C77094082A66D8800041106B /* UserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWorker.swift; sourceTree = "<group>"; };
+		C77094082A66D8800041106B /* UserNetworkingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingWorker.swift; sourceTree = "<group>"; };
 		C77094092A66D8800041106B /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		C770940A2A66D8800041106B /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
 		C770940B2A66D8800041106B /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 				C770940C2A66D8800041106B /* UserInteractor.swift */,
 				C77094072A66D8800041106B /* UserPresenter.swift */,
 				C77094092A66D8800041106B /* UserRouter.swift */,
-				C77094082A66D8800041106B /* UserWorker.swift */,
+				C77094082A66D8800041106B /* UserNetworkingWorker.swift */,
 				C770940A2A66D8800041106B /* UserModels.swift */,
 			);
 			path = User;
@@ -166,7 +166,7 @@
 				C77094102A66D8800041106B /* UserModels.swift in Sources */,
 				C770940F2A66D8800041106B /* UserRouter.swift in Sources */,
 				C770940D2A66D8800041106B /* UserPresenter.swift in Sources */,
-				C770940E2A66D8800041106B /* UserWorker.swift in Sources */,
+				C770940E2A66D8800041106B /* UserNetworkingWorker.swift in Sources */,
 				C7CC9BE62A667F4E001D37E7 /* AppDelegate.swift in Sources */,
 				C7CC9BE82A667F4E001D37E7 /* SceneDelegate.swift in Sources */,
 			);

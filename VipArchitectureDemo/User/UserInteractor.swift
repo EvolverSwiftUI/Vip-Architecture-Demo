@@ -18,20 +18,56 @@ protocol UserBusinessLogic {
 }
 
 protocol UserDataStore {
-  //var name: String { get set }
+    var userResponse: User.Fetch.Response? { get set }
 }
 
 class UserInteractor: UserDataStore {
-  var presenter: UserPresentationLogic?
-  var worker: UserWorker?
+    
+    // MARK: - Public Variables
+    
+    var presenter: UserPresentationLogic?
+    var worker: UserNetworkingWorker?
+    var userResponse: User.Fetch.Response?
+    
+    // MARK: - Private Variables
+    
+    private let group = DispatchGroup()
 }
 
 extension UserInteractor: UserBusinessLogic {
     func viewDidLoad() {
-        worker = UserWorker()
-        worker?.doSomeWork()
-        
-        let response = User.Fetch.Response()
-        presenter?.presentSomething(response: response)
-      }
+        presenter?.showLoader()
+        getUsersList()
+        group.notify(queue: .main) { [weak self] in
+            guard let self = self else { return }
+            
+            self.presenter?.hideLoader()
+            
+            guard let users = self.userResponse else { return }
+            
+            if let error = self.userResponse?.error {
+                self.presenter?.showError(error)
+            }
+            
+            self.presenter?.showUsers(with: users)
+        }
+    }
+}
+
+
+// MARK: - Private Functions
+private extension UserInteractor {
+    func getUsersList() {
+        worker = UserNetworkingWorker()
+        group.enter()
+        worker?.getUsers { [weak self] result in
+            defer { self?.group.leave() }
+            switch result {
+            case let .success(users):
+                self?.userResponse = User.Fetch.Response(users: users)
+            case let .failure(error):
+                self?.userResponse = User.Fetch.Response(error: error)
+            }
+        }
+    }
 }

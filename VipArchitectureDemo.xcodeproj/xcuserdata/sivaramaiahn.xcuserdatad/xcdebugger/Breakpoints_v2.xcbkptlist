@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "44E6567A-94B3-4EA0-B994-2409CD4C6303"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47327FEC-B0EF-4993-B52A-1020E7185B75"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VipArchitectureDemo/User/UserModels.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "init(users:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3612B24-9799-4E0C-9D1A-4DD34457276C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VipArchitectureDemo/User/UserModels.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "init(users:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F3612B24-9799-4E0C-9D1A-4DD34457276C - 20996b1fea4e84f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VipArchitectureDemo.User.Fetch.ViewModel.init(users: Swift.Optional&lt;Swift.Array&lt;VipArchitectureDemo.UserModel&gt;&gt;) -&gt; VipArchitectureDemo.User.Fetch.ViewModel"
+                  moduleName = "VipArchitectureDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sivaramaiahn/Desktop/VipArchitectureDemo/VipArchitectureDemo/User/UserModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "F3612B24-9799-4E0C-9D1A-4DD34457276C - 20996b1fea4e84f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VipArchitectureDemo.User.Fetch.ViewModel.init(users: Swift.Optional&lt;Swift.Array&lt;VipArchitectureDemo.UserModel&gt;&gt;) -&gt; VipArchitectureDemo.User.Fetch.ViewModel"
+                  moduleName = "VipArchitectureDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sivaramaiahn/Desktop/VipArchitectureDemo/VipArchitectureDemo/User/UserModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
